@@ -1,1 +1,78 @@
-/* You can add global styles to this file, and also import other style files */
+/* Primero las reglas @use */
+@use './styles/index' as styles;
+
+/* Después las reglas @tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos críticos para mejorar la carga inicial */
+/* Estos estilos se cargarán primero y evitarán el FOUC (Flash Of Unstyled Content) */
+:root {
+  --color-primary: #4CAF50;
+  --color-primary-dark: #388E3C;
+  --color-primary-light: #81C784;
+  --color-secondary: #FFEB3B;
+  --color-secondary-dark: #FBC02D;
+  --color-secondary-light: #FFF59D;
+  --color-accent: #F44336;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Resto de estilos */
+html {
+  scroll-behavior: smooth;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.container-custom {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-md transition-all duration-300 font-medium text-base;
+
+  &.btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+
+  &.btn-secondary {
+    @apply bg-secondary text-gray-800 hover:bg-secondary-dark;
+  }
+
+  &.btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white;
+
+    &.btn-header {
+      @apply border-2 border-white text-white hover:border-primary;
+    }
+  }
+}
+
+/* Floating WhatsApp button */
+.whatsapp-float {
+  @apply fixed bottom-6 right-6 z-50 w-16 h-16 flex items-center justify-center rounded-full bg-green-500 text-white shadow-lg transition-transform duration-300 hover:scale-110;
+}
+
+/* Parallax effect */
+.parallax {
+  @apply bg-fixed bg-center bg-no-repeat bg-cover;
+}
+
+/* Scroll animation classes */
+.reveal {
+  @apply opacity-0 transition-all duration-700 transform translate-y-10;
+
+  &.active {
+    @apply opacity-100 translate-y-0;
+  }
+}

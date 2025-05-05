@@ -1,0 +1,179 @@
+@use 'sass:color';
+@use 'variables' as vars;
+
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: vars.$breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: vars.$breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: vars.$breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: vars.$breakpoint-xl) { @content; }
+  } @else if $breakpoint == 2xl {
+    @media (min-width: vars.$breakpoint-2xl) { @content; }
+  }
+}
+
+// Flexbox helpers
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Typography helpers
+@mixin heading-1 {
+  font-family: vars.$font-family-sans;
+  font-size: vars.$font-size-4xl;
+  font-weight: vars.$font-weight-bold;
+  line-height: 1.2;
+  
+  @include respond-to(md) {
+    font-size: vars.$font-size-5xl;
+  }
+}
+
+@mixin heading-2 {
+  font-family: vars.$font-family-sans;
+  font-size: vars.$font-size-3xl;
+  font-weight: vars.$font-weight-bold;
+  line-height: 1.3;
+  
+  @include respond-to(md) {
+    font-size: vars.$font-size-4xl;
+  }
+}
+
+@mixin heading-3 {
+  font-family: vars.$font-family-sans;
+  font-size: vars.$font-size-2xl;
+  font-weight: vars.$font-weight-semibold;
+  line-height: 1.4;
+  
+  @include respond-to(md) {
+    font-size: vars.$font-size-3xl;
+  }
+}
+
+@mixin body-text {
+  font-family: vars.$font-family-sans;
+  font-size: vars.$font-size-base;
+  font-weight: vars.$font-weight-normal;
+  line-height: 1.6;
+}
+
+// Transitions
+@mixin transition($property: all, $duration: vars.$transition-normal, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Box shadow
+@mixin box-shadow($level: 'md') {
+  @if $level == 'sm' {
+    box-shadow: vars.$shadow-sm;
+  } @else if $level == 'md' {
+    box-shadow: vars.$shadow-md;
+  } @else if $level == 'lg' {
+    box-shadow: vars.$shadow-lg;
+  } @else if $level == 'xl' {
+    box-shadow: vars.$shadow-xl;
+  }
+}
+
+// Overlay
+@mixin overlay($color: rgba(0, 0, 0, 0.5), $z-index: 1) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color;
+    z-index: $z-index;
+  }
+}
+
+// Button styles
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: vars.$spacing-3 vars.$spacing-6;
+  border-radius: vars.$border-radius-md;
+  font-weight: vars.$font-weight-medium;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  @include transition;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: vars.$color-primary;
+  color: white;
+  
+  &:hover {
+    background-color: vars.$color-primary-dark;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: vars.$color-secondary;
+  color: vars.$color-neutral-dark;
+  
+  &:hover {
+    background-color: vars.$color-secondary-dark;
+  }
+}
+
+@mixin button-outline {
+  @include button-base;
+  background-color: transparent;
+  border: 2px solid vars.$color-primary;
+  color: vars.$color-primary;
+  
+  &:hover {
+    background-color: vars.$color-primary;
+    color: white;
+  }
+}
+
+// Card styles
+@mixin card {
+  background-color: white;
+  border-radius: vars.$border-radius-lg;
+  overflow: hidden;
+  @include box-shadow('md');
+  @include transition;
+  
+  &:hover {
+    @include box-shadow('lg');
+    transform: translateY(-5px);
+  }
+}
+
+// Parallax effect
+@mixin parallax-background($image-url) {
+  background-image: url($image-url);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

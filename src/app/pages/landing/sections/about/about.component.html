@@ -1,0 +1,47 @@
+<section id="about" class="section-padding bg-neutral-light">
+    <div class="container-custom">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" appScrollAnimation>Sobre Nutrivida</h2>
+        <div class="w-24 h-1 bg-primary mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div appScrollAnimation>
+          <div class="relative">
+            <!-- Imagen principal -->
+            <img src="assets/images/centro_nutrivida.JPG" alt="Centro Nutrivida" class="rounded-lg shadow-lg w-full">
+            
+            <!-- Imagen superpuesta con efecto -->
+            <img src="assets/images/medicina.jpg" alt="Medicina Natural" 
+                 class="absolute -bottom-6 -right-6 w-32 h-32 md:w-48 md:h-48 rounded-lg shadow-lg border-4 border-white">
+          </div>
+        </div>
+        
+        <div appScrollAnimation>
+          <h3 class="text-2xl font-semibold text-primary mb-4">"Nutrivida te hace mejor la vida"</h3>
+          
+          <p class="text-gray-700 mb-6">
+            Somos un centro especializado en salud y medicina natural, comprometidos con mejorar la calidad de vida de nuestros pacientes a través de métodos naturales y tecnología de vanguardia.
+          </p>
+          
+          <p class="text-gray-700 mb-6">
+            Contamos con equipos de última generación para diagnósticos precisos y tratamientos personalizados que combinan la sabiduría de la medicina natural con avances científicos.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4 mt-8">
+            <div *ngFor="let feature of features" class="flex items-start">
+              <div class="bg-primary rounded-full p-2 mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="getIconClass(feature.icon)" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800">{{ feature.title }}</h4>
+                <p class="text-sm text-gray-600">{{ feature.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

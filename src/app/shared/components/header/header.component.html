@@ -1,0 +1,58 @@
+<header [ngClass]="{'scrolled': isScrolled}" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+    <div class="container-custom py-4">
+      <nav class="flex justify-between items-center">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center">
+          <img src="assets/images/logo.png" title="Nutrivida" alt="Nutrivida Logo" class="h-12 w-auto">
+        </a>
+        
+        <!-- Menú de navegación - Desktop -->
+        <div class="hidden md:flex items-center justify-center space-x-8">
+          <ul class="flex space-x-6 items-center">
+            <li *ngFor="let link of menuLinks">
+              <a [href]="link.href" class="text-gray-800 hover:text-primary font-medium transition-colors">
+                {{ link.name }}
+              </a>
+            </li>
+          </ul>
+          
+          <!-- Botón de acceso externo a usuario -->
+          <a [href]="userExternalLink" target="_blank" rel="noopener" 
+             class="btn btn-primary flex items-center">
+            <span>Área Cliente</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Botón de menú móvil -->
+        <button (click)="toggleMobileMenu()" class="md:hidden flex items-center mobile-button">
+          <svg *ngIf="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg *ngIf="isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+    
+    <!-- Menú móvil -->
+    <div *ngIf="isMobileMenuOpen" class="md:hidden bg-white shadow-lg">
+      <div class="container-custom py-4">
+        <ul class="flex flex-col space-y-4">
+          <li *ngFor="let link of menuLinks">
+            <a [href]="link.href" (click)="closeMobileMenu()" class="block text-gray-800 hover:text-primary font-medium transition-colors">
+              {{ link.name }}
+            </a>
+          </li>
+          <li>
+            <a [href]="userExternalLink" target="_blank" rel="noopener" class="block text-primary font-medium">
+              Área Cliente
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</header>

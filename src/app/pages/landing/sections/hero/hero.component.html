@@ -1,0 +1,38 @@
+<section id="home" class="hero-section relative h-screen-85 flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary-dark/80 z-10"></div>
+    
+    <!-- Background con efecto Parallax -->
+    <div class="absolute inset-0 bg-hero-pattern bg-cover bg-center parallax"></div>
+    
+    <div class="container-custom relative z-20">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 reveal">
+          Nutrivida <span class="text-secondary">te hace mejor la vida</span>
+        </h1>
+        
+        <p class="text-xl text-white/90 mb-8 reveal delay-100">
+          Centro de salud y medicina natural con exámenes de última tecnología y resultados precisos para mejorar tu bienestar.
+        </p>
+        
+        <div class="flex flex-wrap gap-4 reveal delay-200">
+          <a [href]="consultationUrl" class="btn btn-secondary">
+            Solicitar Consulta
+          </a>
+          
+          <a [href]="productsUrl" class="btn btn-outline btn-header text-white border-white hover:bg-white hover:text-primary">
+            Ver Productos
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll down indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 text-white text-center">
+      <p class="mb-2 text-sm font-medium">Descubre más</p>
+      <div class="animate-bounce">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+    </div>
+</section>
