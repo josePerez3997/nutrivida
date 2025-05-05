@@ -1,0 +1,101 @@
+@use '../../../../../styles/index' as styles;
+
+:host {
+  display: block;
+}
+
+section {
+  position: relative;
+  overflow: hidden;
+  
+  // Decoración de fondo (opcional)
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: rgba(styles.$color-primary, 0.05);
+    z-index: 0;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: rgba(styles.$color-secondary, 0.05);
+    z-index: 0;
+  }
+}
+
+h2 {
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: styles.$color-primary;
+    border-radius: 3px;
+  }
+}
+
+// Efecto para las imágenes
+.relative {
+  img {
+    transition: all styles.$transition-normal ease;
+  }
+  
+  &:hover {
+    img:first-child {
+      transform: scale(1.02);
+      box-shadow: styles.$shadow-lg;
+    }
+    
+    img:last-child {
+      transform: rotate(3deg) scale(1.05);
+    }
+  }
+}
+
+// Estilo para los features
+.feature-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: styles.$color-primary;
+  color: white;
+  margin-right: 12px;
+  
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Animación para elementos que aparecen al hacer scroll
+[appScrollAnimation] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

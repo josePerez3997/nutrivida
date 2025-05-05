@@ -1,0 +1,75 @@
+@use '../../../../styles/index' as styles;
+
+
+:host {
+  display: block;
+}
+
+footer {
+  position: relative;
+  
+  a {
+    transition: color styles.$transition-normal ease;
+  }
+  
+  .footer-heading {
+    position: relative;
+    display: inline-block;
+    margin-bottom: styles.$spacing-4;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: styles.$color-primary;
+    }
+  }
+  
+  // Hover efecto para iconos sociales
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all styles.$transition-normal ease;
+    
+    &:hover {
+      background-color: styles.$color-primary;
+      transform: translateY(-3px);
+    }
+  }
+  
+  // Botón volver arriba
+  .back-to-top {
+    position: relative;
+    transition: all styles.$transition-normal ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 50%;
+      background-color: rgba(styles.$color-primary, 0.2);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity styles.$transition-normal ease;
+    }
+    
+    &:hover:before {
+      opacity: 1;
+    }
+  }
+}

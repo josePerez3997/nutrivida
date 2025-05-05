@@ -1,0 +1,146 @@
+@use '../../../../../styles/index' as styles;
+
+
+:host {
+  display: block;
+}
+
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card {
+  background-color: white;
+  border-radius: styles.$border-radius-lg;
+  overflow: hidden;
+  box-shadow: styles.$shadow-md;
+  transition: all styles.$transition-normal ease;
+  
+  &:hover {
+    box-shadow: styles.$shadow-lg;
+    transform: translateY(-10px);
+  }
+  
+  .service-icon {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+      width: 64px;
+      height: 64px;
+    }
+  }
+  
+  &.primary {
+    .service-icon {
+      background: linear-gradient(135deg, styles.$color-primary, styles.$color-primary-dark);
+      color: white;
+    }
+  }
+  
+  &.secondary {
+    .service-icon {
+      background: linear-gradient(135deg, styles.$color-secondary-dark, styles.$color-secondary);
+      color: styles.$color-neutral-dark;
+    }
+  }
+  
+  &.accent {
+    .service-icon {
+      background: linear-gradient(135deg, styles.$color-accent, styles.$color-accent-dark);
+      color: white;
+    }
+  }
+}
+
+.feature-list {
+  li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: styles.$spacing-2;
+    
+    svg {
+      flex-shrink: 0;
+      margin-top: 4px;
+      margin-right: styles.$spacing-2;
+    }
+  }
+}
+
+.learn-more {
+  color: styles.$color-primary;
+  display: inline-flex;
+  align-items: center;
+  font-weight: styles.$font-weight-medium;
+  transition: all styles.$transition-fast ease;
+  
+  svg {
+    margin-left: styles.$spacing-1;
+    transition: transform styles.$transition-fast ease;
+  }
+  
+  &:hover {
+    color: styles.$color-primary-dark;
+    
+    svg {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// Banner destacado
+.featured-banner {
+  border-radius: styles.$border-radius-lg;
+  overflow: hidden;
+  box-shadow: styles.$shadow-lg;
+  
+  .content {
+    padding: styles.$spacing-8;
+    
+    @include styles.respond-to(md) {
+      padding: styles.$spacing-12;
+    }
+    
+    h3 {
+      margin-bottom: styles.$spacing-4;
+    }
+    
+    p {
+      margin-bottom: styles.$spacing-6;
+      opacity: 0.9;
+    }
+  }
+  
+  .image-container {
+    position: relative;
+    height: 250px;
+    
+    @include styles.respond-to(md) {
+      height: 100%;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        270deg,
+        transparent 0%,
+        rgba(styles.$color-primary-dark, 0.5) 100%
+      );
+    }
+  }
+}
