@@ -1,0 +1,175 @@
+@use 'sass:color';
+@use '../../../../../styles/index' as styles;
+
+:host {
+  display: block;
+}
+
+section {
+  position: relative;
+  background-color: white;
+}
+
+// Formulario
+.contact-form {
+  background-color: styles.$color-neutral-light;
+  border-radius: styles.$border-radius-lg;
+  padding: styles.$spacing-8;
+  box-shadow: styles.$shadow-md;
+  
+  h3 {
+    margin-bottom: styles.$spacing-6;
+    font-weight: styles.$font-weight-semibold;
+  }
+  
+  // Input y textarea
+  .form-group {
+    margin-bottom: styles.$spacing-6;
+    
+    label {
+      display: block;
+      margin-bottom: styles.$spacing-2;
+      font-weight: styles.$font-weight-medium;
+    }
+    
+    input, textarea, select {
+      width: 100%;
+      padding: styles.$spacing-3 styles.$spacing-4;
+      border: 1px solid color.adjust(styles.$color-neutral-dark, $lightness: 50%);
+      border-radius: styles.$border-radius-md;
+      font-family: styles.$font-family-sans;
+      font-size: styles.$font-size-base;
+      transition: all styles.$transition-fast ease;
+      
+      &:focus {
+        outline: none;
+        border-color: transparent;
+        box-shadow: 0 0 0 2px styles.$color-primary;
+      }
+      
+      &.error {
+        border-color: styles.$color-accent;
+      }
+    }
+    
+    .error-message {
+      color: styles.$color-accent;
+      font-size: styles.$font-size-sm;
+      margin-top: styles.$spacing-1;
+    }
+  }
+  
+  // Mensaje de estado
+  .status-message {
+    padding: styles.$spacing-3;
+    border-radius: styles.$border-radius-md;
+    margin-bottom: styles.$spacing-4;
+    
+    &.success {
+      background-color: rgba(green, 0.1);
+      color: green;
+    }
+    
+    &.error {
+      background-color: rgba(styles.$color-accent, 0.1);
+      color: styles.$color-accent;
+    }
+  }
+}
+
+// Información de contacto
+.contact-info {
+  h3 {
+    margin-bottom: styles.$spacing-6;
+    font-weight: styles.$font-weight-semibold;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: styles.$spacing-4;
+    
+    .icon-container {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: styles.$color-primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: styles.$spacing-4;
+      flex-shrink: 0;
+      
+      svg {
+        color: white;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    
+    .info-content {
+      h4 {
+        font-weight: styles.$font-weight-semibold;
+        margin-bottom: styles.$spacing-1;
+      }
+      
+      p {
+        color: color.adjust(styles.$color-neutral-dark, $lightness: 20%);
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// Mapa
+.map-container {
+  height: 320px;
+  border-radius: styles.$border-radius-lg;
+  overflow: hidden;
+  box-shadow: styles.$shadow-md;
+  margin-bottom: styles.$spacing-8;
+  
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+// Redes sociales
+.social-media {
+  h3 {
+    margin-bottom: styles.$spacing-4;
+    font-weight: styles.$font-weight-semibold;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: styles.$spacing-3;
+    
+    a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all styles.$transition-normal ease;
+      
+      &:hover {
+        transform: translateY(-3px);
+      }
+      
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.social-container {
+  a {
+    color: white !important
+  }
+}

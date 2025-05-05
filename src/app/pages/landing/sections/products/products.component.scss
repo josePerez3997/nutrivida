@@ -1,0 +1,194 @@
+@use 'sass:color';
+@use '../../../../../styles/index' as styles;
+
+
+:host {
+  display: block;
+}
+
+section {
+  position: relative;
+  background-color: styles.$color-neutral-light;
+  
+  // Decoración de fondo (opcional)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-image: radial-gradient(
+      circle,
+      rgba(styles.$color-primary, 0.05) 0%,
+      transparent 70%
+    );
+    z-index: 0;
+  }
+}
+
+// Estilos para categorías
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: styles.$spacing-2;
+  margin-bottom: styles.$spacing-8;
+  
+  button {
+    padding: styles.$spacing-2 styles.$spacing-6;
+    border-radius: styles.$border-radius-full;
+    font-size: styles.$font-size-sm;
+    font-weight: styles.$font-weight-medium;
+    transition: all styles.$transition-normal ease;
+    
+    &.active {
+      background-color: styles.$color-primary;
+      color: white;
+    }
+    
+    &:not(.active) {
+      background-color: white;
+      color: styles.$color-neutral-dark;
+      
+      &:hover {
+        background-color: color.adjust(white, $lightness: -5%);
+      }
+    }
+  }
+}
+
+// Estilos para productos
+.product-card {
+  background-color: white;
+  border-radius: styles.$border-radius-lg;
+  overflow: hidden;
+  box-shadow: styles.$shadow-md;
+  transition: all styles.$transition-normal ease;
+  
+  &:hover {
+    box-shadow: styles.$shadow-lg;
+    transform: translateY(-10px);
+  }
+  
+  .product-image {
+    height: 220px;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform styles.$transition-normal ease;
+    }
+    
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+  
+  .product-badge {
+    position: absolute;
+    top: styles.$spacing-3;
+    right: styles.$spacing-3;
+    padding: styles.$spacing-1 styles.$spacing-3;
+    border-radius: styles.$border-radius-full;
+    font-size: 0.75rem;
+    font-weight: styles.$font-weight-medium;
+    z-index: 10;
+    
+    &.bestseller {
+      background-color: styles.$color-primary;
+      color: white;
+    }
+    
+    &.new {
+      background-color: styles.$color-secondary;
+      color: styles.$color-neutral-dark;
+    }
+    
+    &.sale {
+      background-color: styles.$color-accent;
+      color: white;
+    }
+  }
+  
+  .product-content {
+    padding: styles.$spacing-4;
+  }
+  
+  .product-title {
+    font-size: styles.$font-size-lg;
+    font-weight: styles.$font-weight-semibold;
+    margin-bottom: styles.$spacing-1;
+    color: styles.$color-neutral-dark;
+  }
+  
+  .product-price {
+    font-weight: styles.$font-weight-bold;
+    color: styles.$color-primary;
+    
+    .original-price {
+      text-decoration: line-through;
+      color: color.adjust(styles.$color-neutral-dark, $lightness: 40%);
+      font-size: 0.85em;
+      margin-right: styles.$spacing-1;
+    }
+  }
+  
+  .product-description {
+    font-size: styles.$font-size-sm;
+    color: color.adjust(styles.$color-neutral-dark, $lightness: 20%);
+    margin-top: styles.$spacing-2;
+    margin-bottom: styles.$spacing-3;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    
+    .star {
+      color: #FFB800;
+      margin-right: 2px;
+    }
+    
+    .reviews {
+      font-size: 0.75rem;
+      color: color.adjust(styles.$color-neutral-dark, $lightness: 40%);
+      margin-left: styles.$spacing-1;
+    }
+  }
+  
+  .add-to-cart {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: styles.$color-primary;
+    color: white;
+    transition: all styles.$transition-fast ease;
+    
+    &:hover {
+      background-color: styles.$color-primary-dark;
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Botón "Ver todos"
+.see-all-btn {
+  display: inline-flex;
+  align-items: center;
+  @include styles.button-primary;
+  
+  svg {
+    margin-left: styles.$spacing-2;
+    transition: transform styles.$transition-fast ease;
+  }
+  
+  &:hover svg {
+    transform: translateX(4px);
+  }
+}

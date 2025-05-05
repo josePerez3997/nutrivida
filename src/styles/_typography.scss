@@ -1,0 +1,98 @@
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+// Headings
+h1, .h1 {
+  margin-bottom: vars.$spacing-6;
+  @include mix.heading-1;
+}
+
+h2, .h2 {
+  margin-bottom: vars.$spacing-4;
+  @include mix.heading-2;
+}
+
+h3, .h3 {
+  margin-bottom: vars.$spacing-3;
+  @include mix.heading-3;
+}
+
+h4, .h4 {
+  font-family: vars.$font-family-sans;
+  font-size: vars.$font-size-xl;
+  font-weight: vars.$font-weight-semibold;
+  line-height: 1.4;
+  margin-bottom: vars.$spacing-2;
+}
+
+h5, .h5 {
+  font-family: vars.$font-family-sans;
+  font-size: vars.$font-size-lg;
+  font-weight: vars.$font-weight-semibold;
+  line-height: 1.5;
+  margin-bottom: vars.$spacing-2;
+}
+
+h6, .h6 {
+  font-family: vars.$font-family-sans;
+  font-size: vars.$font-size-base;
+  font-weight: vars.$font-weight-semibold;
+  line-height: 1.5;
+  margin-bottom: vars.$spacing-2;
+}
+
+// Body text
+p {
+  @include mix.body-text;
+  margin-bottom: vars.$spacing-4;
+}
+
+// Links
+a {
+  color: vars.$color-primary;
+  text-decoration: none;
+  transition: color vars.$transition-fast ease;
+}
+
+// Lists
+ul, ol {
+  margin-bottom: vars.$spacing-4;
+  padding-left: vars.$spacing-6;
+  
+  li {
+    @include mix.body-text;
+    margin-bottom: vars.$spacing-2;
+  }
+}
+
+// Blockquote
+blockquote {
+  border-left: 4px solid vars.$color-primary;
+  padding-left: vars.$spacing-4;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: vars.$spacing-4;
+  font-style: italic;
+  
+  p {
+    font-size: vars.$font-size-lg;
+    line-height: 1.6;
+  }
+  
+  cite {
+    display: block;
+    margin-top: vars.$spacing-2;
+    font-size: vars.$font-size-sm;
+    font-style: normal;
+    font-weight: vars.$font-weight-medium;
+  }
+}
+
+// Code
+code {
+  font-family: monospace;
+  background-color: vars.$color-neutral-light;
+  padding: vars.$spacing-1 vars.$spacing-2;
+  border-radius: vars.$border-radius-sm;
+  font-size: 0.9em;
+}

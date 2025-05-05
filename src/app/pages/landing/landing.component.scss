@@ -1,0 +1,10 @@
+@use '../../../styles/index' as styles;
+
+:host {
+  display: block;
+}
+
+main {
+  width: 100%;
+  overflow-x: hidden;
+}
