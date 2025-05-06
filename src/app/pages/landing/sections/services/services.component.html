@@ -1,66 +1,68 @@
 <section id="services" class="section-padding bg-white">
-    <div class="container-custom">
-      <div class="mb-12 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" appScrollAnimation>Nuestros Servicios</h2>
-        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
-        <p class="max-w-3xl mx-auto text-gray-600" appScrollAnimation>
-          Ofrecemos una amplia gama de servicios enfocados en mejorar tu salud utilizando medicina natural y tecnología de vanguardia para diagnósticos precisos.
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Servicios dinámicos -->
-        <div *ngFor="let service of services; let i = index" 
-             class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2" 
-             appScrollAnimation
-             [ngStyle]="{'animation-delay': (i * 100) + 'ms'}">
-          <div class="h-48 bg-gradient-to-r" [ngClass]="getGradientClass(service.color)" class="relative">
-            <div class="absolute inset-0 flex items-center justify-center text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="getIconClass(service.icon)" />
-              </svg>
-            </div>
+  <div class="container-custom">
+    <header class="mb-12 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" appScrollAnimation>Nuestros Servicios</h2>
+      <div class="w-24 h-1 bg-primary mx-auto mb-6" aria-hidden="true"></div>
+      <p class="max-w-3xl mx-auto text-gray-600" appScrollAnimation>
+        Ofrecemos una amplia gama de servicios enfocados en mejorar tu salud utilizando medicina natural y tecnología de vanguardia para diagnósticos precisos.
+      </p>
+    </header>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Servicios dinámicos -->
+      <article *ngFor="let service of services; let i = index" 
+           class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2" 
+           appScrollAnimation
+           [ngStyle]="{'animation-delay': (i * 100) + 'ms'}">
+        <header class="h-48 bg-gradient-to-r" [ngClass]="getGradientClass(service.color)" class="relative">
+          <div class="absolute inset-0 flex items-center justify-center text-white" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="getIconClass(service.icon)" />
+            </svg>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800 mb-3">{{ service.name }}</h3>
-            <p class="text-gray-600 mb-4">
-              {{ service.description }}
-            </p>
-            <ul class="space-y-2 mb-4">
-              <li *ngFor="let feature of service.features" class="flex items-center text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                {{ feature }}
-              </li>
-            </ul>
+        </header>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">{{ service.name }}</h3>
+          <p class="text-gray-600 mb-4">
+            {{ service.description }}
+          </p>
+          <ul class="space-y-2 mb-4" aria-label="Características del servicio">
+            <li *ngFor="let feature of service.features" class="flex items-center text-gray-700">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {{ feature }}
+            </li>
+          </ul>
+          <footer>
             <a href="#contact" class="text-primary font-medium hover:text-primary-dark flex items-center">
               Saber más
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
             </a>
-          </div>
+          </footer>
         </div>
-      </div>
-      
-      <!-- Banner de Servicio Destacado -->
-      <div class="mt-16 bg-gradient-to-r from-primary-dark to-primary rounded-xl overflow-hidden shadow-lg" appScrollAnimation>
-        <div class="grid grid-cols-1 md:grid-cols-2 items-center">
-          <div class="p-8 md:p-12">
-            <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Exámenes con Tecnología Avanzada</h3>
-            <p class="text-white/90 mb-6">
-              Nuestros equipos de última generación permiten realizar diagnósticos precisos para detectar problemas de salud en etapas tempranas.
-            </p>
-            <a href="#contact" class="btn btn-secondary inline-block">
-              Agendar Evaluación
-            </a>
-          </div>
-          <div class="h-64 md:h-auto relative">
-            <img src="assets/images/tecnologia.jpg" alt="Tecnología Avanzada" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-l from-transparent to-primary-dark/50"></div>
-          </div>
-        </div>
-      </div>
+      </article>
     </div>
+    
+    <!-- Banner de Servicio Destacado -->
+    <aside class="mt-16 bg-gradient-to-r from-primary-dark to-primary rounded-xl overflow-hidden shadow-lg" appScrollAnimation>
+      <div class="grid grid-cols-1 md:grid-cols-2 items-center">
+        <div class="p-8 md:p-12">
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Exámenes con Tecnología Avanzada</h3>
+          <p class="text-white/90 mb-6">
+            Nuestros equipos de última generación permiten realizar diagnósticos precisos para detectar problemas de salud en etapas tempranas.
+          </p>
+          <a href="#contact" class="btn btn-secondary inline-block">
+            Agendar Evaluación
+          </a>
+        </div>
+        <figure class="h-64 md:h-auto relative">
+          <img src="assets/images/tecnologia.jpg" alt="Tecnología de diagnóstico avanzada en Nutrivida" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-l from-transparent to-primary-dark/50" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </aside>
+  </div>
 </section>

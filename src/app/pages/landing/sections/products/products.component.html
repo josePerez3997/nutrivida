@@ -1,60 +1,61 @@
 <section id="products" class="section-padding bg-neutral-light">
-    <div class="container-custom">
-      <div class="mb-12 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" appScrollAnimation>Nuestros Productos</h2>
-        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
-        <p class="max-w-3xl mx-auto text-gray-600" appScrollAnimation>
-          Descubre nuestra selección de productos naturales de la más alta calidad para complementar tu tratamiento y mejorar tu bienestar.
-        </p>
-      </div>
-      
-      <!-- Filtros de Categorías -->
-      <div class="flex flex-wrap justify-center gap-4 mb-12" appScrollAnimation>
-        <button *ngFor="let category of categories" 
-                (click)="filterByCategory(category)"
-                [ngClass]="{'bg-primary text-white hover:bg-primary-dark': selectedCategory === category, 
-                            'bg-white text-gray-700 hover:bg-gray-100': selectedCategory !== category}"
-                class="px-6 py-2 rounded-full transition-colors">
-          {{ category }}
-        </button>
-      </div>
-      
-      <!-- Productos Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <!-- Producto Item -->
-        <div *ngFor="let product of products; let i = index" 
-             class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2" 
-             appScrollAnimation>
-          <div class="relative">
-            <img [src]="product.image" [alt]="product.name" class="w-full h-64 object-cover">
-            <div *ngIf="product.tag" class="absolute top-4 right-4 text-sm font-medium px-3 py-1 rounded-full"
-                 [ngClass]="getBadgeClass(product.tag)">
-              {{ product.tag }}
-            </div>
+  <div class="container-custom">
+    <header class="mb-12 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800" appScrollAnimation>Nuestros Productos</h2>
+      <div class="w-24 h-1 bg-primary mx-auto mb-6" aria-hidden="true"></div>
+      <p class="max-w-3xl mx-auto text-gray-600" appScrollAnimation>
+        Descubre nuestra selección de productos naturales de la más alta calidad para complementar tu tratamiento y mejorar tu bienestar.
+      </p>
+    </header>
+    
+    <!-- Filtros de Categorías -->
+    <nav class="flex flex-wrap justify-center gap-4 mb-12" appScrollAnimation aria-label="Categorías de productos">
+      <button *ngFor="let category of categories" 
+              (click)="filterByCategory(category)"
+              [ngClass]="{'bg-primary text-white hover:bg-primary-dark': selectedCategory === category, 
+                          'bg-white text-gray-700 hover:bg-gray-100': selectedCategory !== category}"
+              class="px-6 py-2 rounded-full transition-colors"
+              [attr.aria-current]="selectedCategory === category ? 'true' : null">
+        {{ category }}
+      </button>
+    </nav>
+    
+    <!-- Productos Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Producto Item -->
+      <article *ngFor="let product of products; let i = index" 
+              class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2" 
+              appScrollAnimation>
+        <figure class="relative">
+          <img [src]="product.image" [alt]="'Imagen de ' + product.name" class="w-full h-64 object-cover">
+          <div *ngIf="product.tag" class="absolute top-4 right-4 text-sm font-medium px-3 py-1 rounded-full"
+               [ngClass]="getBadgeClass(product.tag)">
+            {{ product.tag }}
           </div>
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-lg font-semibold text-gray-800">{{ product.name }}</h3>
-              <div class="text-right">
-                <span *ngIf="product.originalPrice" class="text-gray-500 text-sm line-through">${{ product.originalPrice.toFixed(3) }}</span>
-                <span class="text-primary font-bold block">${{ product.price.toFixed(3) }}</span>
-              </div>
+        </figure>
+        <div class="p-6">
+          <header class="flex justify-between items-start mb-2">
+            <h3 class="text-lg font-semibold text-gray-800">{{ product.name }}</h3>
+            <div class="text-right">
+              <span *ngIf="product.originalPrice" class="text-gray-500 text-sm line-through" aria-label="Precio original">${{ product.originalPrice.toFixed(3) }}</span>
+              <span class="text-primary font-bold block" aria-label="Precio actual">${{ product.price.toFixed(3) }}</span>
             </div>
-            <p class="text-gray-600 text-sm mb-4">
-              {{ product.description }}
-            </p>
-          </div>
+          </header>
+          <p class="text-gray-600 text-sm mb-4">
+            {{ product.description }}
+          </p>
         </div>
-      </div>
-      
-      <!-- Ver todos los productos -->
-      <div class="text-center mt-12" appScrollAnimation>
-        <a href="#" class="btn btn-primary inline-flex items-center">
-          Ver todos los productos
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </a>
-      </div>
+      </article>
     </div>
+    
+    <!-- Ver todos los productos -->
+    <div class="text-center mt-12" appScrollAnimation>
+      <a href="#" class="btn btn-primary inline-flex items-center">
+        Ver todos los productos
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
 </section>
