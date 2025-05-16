@@ -58,7 +58,7 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'hero-pattern': "url('assets/images/hero-bg.jpg')",
+        'hero-pattern': "url('assets/images/hero-bg.webp')",
       },
     },
   },
