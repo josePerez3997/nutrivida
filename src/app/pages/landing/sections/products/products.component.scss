@@ -10,7 +10,6 @@ section {
   position: relative;
   background-color: styles.$color-neutral-light;
   
-  // Decoración de fondo (opcional)
   &::before {
     content: '';
     position: absolute;
@@ -177,7 +176,6 @@ section {
   }
 }
 
-// Botón "Ver todos"
 .see-all-btn {
   display: inline-flex;
   align-items: center;

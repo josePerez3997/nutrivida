@@ -20,19 +20,19 @@ export class ContactComponent implements OnInit {
   
   // Información de contacto
   contactInfo = {
-    address: 'Av. Salud Natural 123, Colonia Bienestar, Ciudad',
-    phones: ['+123 456 7890', '+123 456 7891'],
-    email: 'info@nutrivida.com',
+    address: 'Calle 12 #9-36 Barrio carretero. Ocaña, Norte de Santander.',
+    phones: ['+57 315 805 4606'],
+    email: 'nutrividaocana@gmail.com',
     businessHours: {
-      weekdays: '9:00 AM - 7:00 PM',
-      weekends: '9:00 AM - 2:00 PM'
+      weekdays: '9:00 AM - 6:00 PM',
+      weekends: '9:00 AM - 6:00 PM'
     }
   };
   
   // Redes sociales
   socialMedia = [
-    { name: 'Facebook', icon: 'facebook', url: '#', color: 'bg-blue-600 hover:bg-blue-700' },
-    { name: 'Instagram', icon: 'instagram', url: '#', color: 'bg-pink-600 hover:bg-pink-700' },
+    { name: 'Facebook', icon: 'facebook', url: 'https://www.facebook.com/profile.php?id=61575778124147&mibextid=wwXIfr&rdid=Xo1hvjtw9raZF4ML&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BtBhxB279%2F%3Fmibextid%3DwwXIfr', color: 'bg-blue-600 hover:bg-blue-700' },
+    { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/nutrivida_oc?igsh=ajhzcGEwb3AyNGc%3D&utm_source=qr', color: 'bg-pink-600 hover:bg-pink-700' },
   ];
 
   constructor(
