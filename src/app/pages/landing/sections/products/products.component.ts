@@ -72,4 +72,8 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  buyProduct(product: Product) {
+    console.log('Comprando producto:', product);
+  }
+
 }
